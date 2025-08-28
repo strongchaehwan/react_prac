@@ -1,29 +1,28 @@
 // JSX 주의사항
-// 1. 중괄호 내부에는 자바스크립트 표현식만 넣을수있다.
-// 2. 숫자,문자열,배열값만 렌더링된다.
+// 1. 중괄호 내부에는 자바스크립트 표현식만 넣을수있다.(if,for  조건문 반복문은 안됌)
+// 2. 숫자,문자열,배열값만 렌더링된다.(객체도 렌더링안됌)
 // 3. 모든 태그는 닫혀있어야한다.
 // 4. 최상위 태그는 반드시 하나여야한다.
 import "./Main.css";
 
-const Main = () =>{
-    const user = {
-        name: "임채환",
-        isLogin: true
-    };
-    
-    if(user.isLogin){
-        return <div className="logout">로그아웃</div>
-    }else{
-        return <div>로그인</div>
-    }
+function Main() {
+  const user = {
+    name: "임채환",
+    isLogin: true,
+  };
 
-    // return (
-    //     <>
-    //         {user.isLogin ? <div>로그아웃</div> : <div>로그인</div>}
-    //     </>
+  if (user.isLogin) {
+    return <div className="logout">로그아웃</div>;
+  } else {
+    return <div>로그인</div>;
+  }
 
-    // )
+  // return (
+  //     <>
+  //         {user.isLogin ? <div>로그아웃</div> : <div>로그인</div>}
+  //     </>
 
+  // )
 }
 
 export default Main;

@@ -18,6 +18,7 @@ function Register() {
     bio: "",
   });
 
+  //userRef는 리렌더링을 유발하지않음
   const countRef = useRef(0);
   const inputRef = useRef();
 
@@ -26,13 +27,14 @@ function Register() {
     countRef.current++;
     console.log(countRef.current);
     setInput({
-      ...input,
-      [e.target.name]: e.target.value,
+      ...input, //관련없는값들은 그대로 유지하기
+      [e.target.name]: e.target.value, // 변경하고자하는값만 변경
     });
   };
 
   const onSubmit = () => {
-    if (input.name == "") {
+    if (input.name === "") {
+      //이름을 입력하는 DOM 요소 포커스(선택된 상태?)
       inputRef.current.focus();
     }
   };
@@ -70,6 +72,7 @@ function Register() {
       <div>
         <textarea name="bio" value={input.bio} onChange={onChange} />
       </div>
+
       <button onClick={onSubmit}>제출</button>
     </div>
   );
